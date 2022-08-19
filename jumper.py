@@ -1,3 +1,9 @@
+# Created by: Joel Leckie
+# May 2021 - Initial file creation
+# July 2021 - v. 1 complete
+#
+
+#   Planned Additions
 # Start Menu: Start Game, High Scores, Quit Game
 # Main Game Screen: Choose player color (Red, Blue, Green) - arrow to select, color in-between, player preview, default red
 # High Score Screen (Top 10 points)
@@ -533,7 +539,7 @@ while running:
         if start_menu_on == True:
             if event.type == MOUSEBUTTONDOWN:
                 # *****----****----***----**--- CLICK THE START BUTTON ---**----***----****----*****
-                if mouse_click == True and start_true.click == True:
+                if start_true.click == True:
                     player1 = Player("Sprites/" + P_Images[P1_Select])
                     player1.rect.x = 100
                     player2 = Player("Sprites/" + P_Images[P2_Select])
@@ -544,7 +550,7 @@ while running:
                     Ground_Generate()
                     main_music.play(loops=-1)
                 # *****----****----***----**--- CHANGE PLAYER1 COLOR ---**----***----****----*****
-                if mouse_click == True and P1_color_left.click == True: # 0 to 5
+                if P1_color_left.click == True: # 0 to 5
                     if Players == 1:
                         if P1_Select > 0: P1_Select -= 1
                         else: P1_Select = P_Options
@@ -554,7 +560,7 @@ while running:
                         elif P1_Select == 0 and P2_Select != P_Options: P1_Select = P_Options
                         elif P1_Select == 1 and P2_Select == 0: P1_Select = P_Options
                         elif P1_Select == 0 and P2_Select == P_Options: P1_Select = P_Options - 1
-                if mouse_click == True and P1_color_right.click == True:
+                if P1_color_right.click == True:
                     if Players == 1:
                         if P1_Select < P_Options: P1_Select += 1
                         else: P1_Select = 0
@@ -566,24 +572,24 @@ while running:
                         elif P1_Select == P_Options - 1 and P2_Select == P_Options: P1_Select = 0
                 # *****----****----***----**--- CHANGE PLAYER2 COLOR ---**----***----****----*****
                 if Players == 2:
-                    if mouse_click == True and P2_color_left.click == True:
+                    if P2_color_left.click == True:
                         if P2_Select > 0 and P2_Select != P1_Select + 1: P2_Select -= 1
                         elif P2_Select > 1 and P2_Select == P1_Select + 1: P2_Select -= 2
                         elif P2_Select == 0 and P1_Select != P_Options: P2_Select = P_Options
                         elif P2_Select == 1 and P1_Select == 0: P2_Select = P_Options
                         elif P2_Select == 0 and P1_Select == P_Options: P2_Select = P_Options - 1
-                    if mouse_click == True and P2_color_right.click == True:
+                    if P2_color_right.click == True:
                         if P2_Select < P_Options and P2_Select != P1_Select - 1: P2_Select += 1
                         elif P2_Select < P_Options - 1 and P2_Select == P1_Select - 1: P2_Select += 2
                         elif P2_Select == P_Options and P1_Select != 0: P2_Select = 0
                         elif P2_Select == P_Options and P1_Select == 0: P2_Select = 1
                         elif P2_Select == P_Options - 1 and P1_Select == P_Options: P2_Select = 0
                 # *****----****----***----**--- CHANGE NUMBER OF PLAYERS ---**----***----****----*****
-                if mouse_click == True and p_number.click == True:
+                if p_number.click == True:
                     if Players == 1: Players = 2
                     elif Players == 2: Players = 1
                 # *****----****----***----**--- CLICK THE QUIT BUTTON ---**----***----****----*****
-                if mouse_click == True and start_false.click == True: running = False
+                if start_false.click == True: running = False
 
         # *****----*****----*****--- MAIN GAME COMMANDS ---*****----*****----*****
         if main_game_on == True:
